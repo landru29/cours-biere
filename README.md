@@ -1,5 +1,7 @@
 # Cours Bière
 
+https://landru29.github.io/cours-biere/#/
+
 ## Installation
 
 ```
@@ -10,4 +12,4 @@ npm install
 
 MIT licensed
 
-Copyright (C) 2016 Hakim El Hattab, http://hakim.se
+Copyright (C) 2018 Cyrille Meichel https://www.noopy.fr
