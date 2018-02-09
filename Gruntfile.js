@@ -1,4 +1,4 @@
-/* global module:false */
+/* global module:false, __dirname */
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
 	var base = grunt.option('base') || '.';
@@ -9,11 +9,11 @@ module.exports = function(grunt) {
 		meta: {
 			banner:
 				'/*!\n' +
-				' * reveal.js <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
-				' * http://lab.hakim.se/reveal-js\n' +
+				' * Cours sur la bière\n' +
+				' * https://landru29.github.io/cours-biere/#/\n' +
 				' * MIT licensed\n' +
 				' *\n' +
-				' * Copyright (C) 2016 Hakim El Hattab, http://hakim.se\n' +
+				' * Copyright (C) 2018 Cyrille Meichel https://www.noopy.fr\n' +
 				' */'
 		},
 
@@ -113,6 +113,26 @@ module.exports = function(grunt) {
 			]
 		},
 
+		injector: {
+			options: {
+				transform: function (filePath) {
+					var filename = __dirname + filePath;
+					var content = grunt.file.read(filename);
+					return "\n<!-- ************************ " + filePath + " ************************ -->\n"  + content;
+				},
+				starttag: "<!-- injector:html -->",
+				endtag: "<!-- endinjector -->"
+			},
+			dist: {
+			    files: {
+				    'index.html': [
+						'concepts.html',
+						'bieres.html'	
+					],
+			    }
+			}
+		},
+
 		watch: {
 			options: {
 				livereload: true
@@ -130,7 +150,8 @@ module.exports = function(grunt) {
 				tasks: 'css-core'
 			},
 			html: {
-				files: [ 'index.html']
+				files: [ 'index.html'],
+				task: 'injector: dest'
 			},
 			markdown: {
 				files: [ './*.md' ]
@@ -145,13 +166,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
+	grunt.loadNpmTasks( 'grunt-injector' );
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-autoprefixer' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'css', 'js' ] );
+	grunt.registerTask( 'default', [ 'css', 'js', 'injector' ] );
 
 	// JS task
 	grunt.registerTask( 'js', [ 'jshint', 'uglify', 'qunit' ] );

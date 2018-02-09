@@ -1,14 +1,45 @@
 $bgColor: #9a5000;
+$color: #fff;
+$emphasis:#9e9ec7;
 
 body {
     background: $bgColor !important;
     background-color: $bgColor !important;
 
+    /*counter-reset: h1counter h2counter h3counter h4counter;
+
+    section {
+        counter-reset: none;
+    }
+
+    h1 {
+        counter-reset: h2counter h3counter h4counter;
+
+        &:before {
+            counter-increment: h1counter 1;
+            content: counter(h1counter) "\0000a0\0000a0";
+        }
+    }
+
+    h2 {
+        counter-reset: h3counter h4counter;
+
+        &:before {
+            counter-increment: h2counter 1;
+            content: counter(h1counter) "-" counter(h2counter) "\0000a0\0000a0";
+        }
+    }
+
+    h3 {
+        counter-reset: h4counter;
+        &:before {
+            counter-increment: h3counter 1;
+            content: counter(h1counter) "-" counter(h2counter) "-" counter(h3counter) "\0000a0\0000a0";
+        }
+    }*/
+
     div.header {
         position: relative;
-
-        hr {
-        }
 
         div.title {
             position: absolute;
@@ -25,11 +56,17 @@ div.header {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 0 20px 15px;
     font-size: 2em;
-    color: #fff;
+    color: $color;
     font-weight: 800;
 }
 
 .reveal {
+    em {
+        font-style: normal;
+        color: $emphasis;
+        font-weight: bold;
+        text-decoration: underline;
+    }
     img{
         &.pos-0-1 {
             position: absolute;
