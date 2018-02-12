@@ -1,52 +1,24 @@
-$bgColor: #9a5000;
 $color: #fff;
 $emphasis:#9e9ec7;
 
 body {
-    background: $bgColor !important;
-    background-color: $bgColor !important;
-
-    /*counter-reset: h1counter h2counter h3counter h4counter;
-
-    section {
-        counter-reset: none;
-    }
-
-    h1 {
-        counter-reset: h2counter h3counter h4counter;
-
-        &:before {
-            counter-increment: h1counter 1;
-            content: counter(h1counter) "\0000a0\0000a0";
-        }
-    }
-
-    h2 {
-        counter-reset: h3counter h4counter;
-
-        &:before {
-            counter-increment: h2counter 1;
-            content: counter(h1counter) "-" counter(h2counter) "\0000a0\0000a0";
-        }
-    }
-
-    h3 {
-        counter-reset: h4counter;
-        &:before {
-            counter-increment: h3counter 1;
-            content: counter(h1counter) "-" counter(h2counter) "-" counter(h3counter) "\0000a0\0000a0";
-        }
-    }*/
 
     div.header {
-        position: relative;
+        text-align: center;
+
+        hr.title-pre {
+            display: inline-block;
+            width: 70px;
+        }
+
+        hr.title-post {
+            display: inline-block;
+            width: 70px;
+        }
 
         div.title {
-            position: absolute;
-            top: 12px;
+            display: inline-block;
             font-size: 1.5em;
-            background: $bgColor;
-            left: 7%;
             padding: 0 20px;
         }
     }
@@ -56,7 +28,6 @@ div.header {
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 0 20px 15px;
     font-size: 2em;
-    color: $color;
     font-weight: 800;
 }
 
@@ -105,5 +76,9 @@ div.header {
             max-width: 200px;
             max-height: 200px;
         }
+    }
+
+    p.note {
+        font-size: 0.5em;
     }
 }

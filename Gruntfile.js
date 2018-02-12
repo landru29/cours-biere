@@ -126,8 +126,13 @@ module.exports = function(grunt) {
 			dist: {
 			    files: {
 				    'index.html': [
-						'concepts.html',
-						'bieres.html'	
+						'bieres.html',
+						'fabrication.html',
+						'brassage.html',
+						'brasser.html',
+						'fermentation.html',
+						'emballage.html',
+						'hygiène.html',
 					],
 			    }
 			}
